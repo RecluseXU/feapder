@@ -86,9 +86,20 @@ parser中支持下发新任务，写法与start_requests一致，只需要`yield
         request.headers = {'User-Agent':"lalala"}
         return request
 
+此处为请求配置头部参数，其设置在代码执行后可以在输出中观察到  
+
+~~~bash
+                -------------- AirSpiderTest.parser request for ----------------
+                url  = http://httpbin.org/headers
+                method = GET
+                body = {'headers': {'User-Agent': 'lalala'}, 'timeout': 22, 'stream': True, 'verify': False}
+~~~
+
 request.参数， 这里的参数支持requests所有参数，同时也可携带些自定义的参数，详情可参考[Request](source_code/Request.md)
 
 默认所有的解析函数在请求之前都会经过此下载中间件
+
+
 
 ## 7. 自定义下载中间件
 
